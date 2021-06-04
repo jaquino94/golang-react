@@ -1,16 +1,16 @@
 package main
 
-import(
+import (
+	"jaquino94/golang-react/routes"
 
 	"github.com/gofiber/fiber/v2"
 )
 
 func main() {
-	app := fiber.New();
+	app := fiber.New()
 
-	app.Get("/hello", func(res *fiber.Ctx) error {
-		return res.SendString("Hello from Fiber!")
-	})
+	app.Get("/hello", routes.Hello)
+	app.Get("/", routes.Home)
 
-	app.Listen(":3000")
+	app.Listen(":8000")
 }
